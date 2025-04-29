@@ -1,13 +1,36 @@
 import speech_recognition as sr
 import webbrowser as wb
 import pyttsx3
+# import requests
+# from openai import OpenAI
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
+# newsapi = ""
 
 def speak(text):
     engine.say(text)
     engine.runAndWait()
+
+# openAI function
+# def aiProcess(command):
+#     client = OpenAI(
+#         api_key = "",)
+    
+#     completion = client.chat.completions.create(
+#     model = "gpt-3.5-turbo",
+#     messages = [
+#         {
+#             "role": "system",
+#             "content": "you are a virtual assistant named Jarvis. You are a helpful assistant."
+#         },
+#         {
+#             "role": "user",
+#             "content": command
+#         }]
+#     )
+
+#     return completion.choices[0].message.content
 
 def processCommand(c):
     if "open google" in c.lower():
@@ -26,6 +49,20 @@ def processCommand(c):
         song = c.lower().split(" ")[1]
         link = musicLibrary.music[song]
         wb.open(link)
+
+    # elif "news" in c.lower():
+    #     r = requests.get("https://newsapi.org") # News API Key
+    #     if r.status_code == 200:
+    #         data = r.json()
+    #         articles = data.get('articles', [])
+    #         for article in articles:
+    #             speak(article['title']) 
+
+    else:
+        speak("Sorry, I didn't understand that.")
+        # output = aiProcess(c)
+        # speak(output)
+
     
     
 if(__name__ == "__main__"):

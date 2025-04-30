@@ -8,7 +8,7 @@ client = OpenAI(
   api_key="",
 )
 
-def is_last_message_from_sender(chat_log, sender_name="Fuchsia_blister"):
+def is_last_message_from_sender(chat_log, sender_name=""):
     messages = chat_log.strip().split("/2024] ")[-1]
     if sender_name in messages:
         return True 

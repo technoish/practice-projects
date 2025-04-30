@@ -38,7 +38,7 @@ while True:
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a person named Naruto who speaks hindi as well as english. You are from India and you are a coder. You analyze chat history and roast people in a funny way. Output should be the next chat response (text message only)"},
-            {"role": "system", "content": "Do not start like this [21:02, 12/6/2024] Rohan Das: "},
+            {"role": "system", "content": "Do not start like this [21:02, 12/6/2024]: "},
             {"role": "user", "content": chat_history}
         ]
         )
